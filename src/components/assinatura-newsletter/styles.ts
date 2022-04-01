@@ -1,4 +1,7 @@
-#form-signup-newsletter {
+import styled from "styled-components";
+import MailIcon from '../../assets/icons/mail.svg';
+
+export const FormSignUpNewsletter = styled.form`
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -20,11 +23,11 @@
         }
 
         input {
-            background-image: url('../../assets/icons/mail.svg');
+            background-image: url(${MailIcon});
             background-repeat: no-repeat;
             background-position-x: 1rem;
             background-position-y: center;
             padding: 1rem 4rem;
         }
     }
-}
+`;

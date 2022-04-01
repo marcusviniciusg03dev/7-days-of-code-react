@@ -1,4 +1,5 @@
-import './index.scss';
+import { StrongElsie } from '../../Global/Styles';
+import { FormSignUpNewsletter } from './styles';
 
 export default function AssinaturaNewsletter() {
     function handleSignUpNewsletter (e: React.FormEvent<HTMLFormElement>) {
@@ -8,9 +9,9 @@ export default function AssinaturaNewsletter() {
     }
 
     return (
-        <form id="form-signup-newsletter" onSubmit={handleSignUpNewsletter}>
+        <FormSignUpNewsletter onSubmit={handleSignUpNewsletter}>
             <small>A sua casa com as</small>
-            <strong className='strong-elsie'>melhores plantas</strong>
+            <StrongElsie>melhores plantas</StrongElsie>
             <small
                 children={`
                     Encontre aqui uma vasta seleção de plantas 
@@ -24,6 +25,6 @@ export default function AssinaturaNewsletter() {
                 <input type="email" required placeholder="Insira seu e-mail" />
                 <button type="submit" children="Assinar newsletter" />
             </div>
-        </form>
+        </FormSignUpNewsletter>
     )
 }

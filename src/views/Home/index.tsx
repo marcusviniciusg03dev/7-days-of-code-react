@@ -1,12 +1,12 @@
 import AssinaturaNewsletter from '../../components/assinatura-newsletter';
 import Menu from '../../components/Menu';
-import './index.scss';
+import HomePage from './styles';
 
 export default function Home() {
     return (
-        <main id="menu-page">
+        <HomePage>
             <Menu />
             <AssinaturaNewsletter />
-        </main>
+        </HomePage>
     )
 }

@@ -1,16 +1,12 @@
-import './index.scss';
-import Logo from '../../assets/logo.svg'
+import { AppLogo, AppMenu, NavigationList, NavigationListItem } from './styles';
 
 export default function Menu() {
     return (
-        <header id="app-menu">
-            <img
-                src={Logo}
-                alt="logo"
-                />
+        <AppMenu>
+            <AppLogo />
 
             <nav>
-                <ul>
+                <NavigationList>
                     {
                         [
                             'Como fazer',
@@ -19,16 +15,16 @@ export default function Menu() {
                             'Videos',
                             'Meu carrinho'
                         ].map((link, index, array) => (
-                            <li>
+                            <NavigationListItem>
                                 <a href={`/${link.replace(/\s/g, '-').toLowerCase()}`}>
                                     {link}
                                 </a>
                                 {array.length !==  index + 1 && <span>/</span>}
-                            </li>
+                            </NavigationListItem>
                         ))
                     }
-                </ul>
+                </NavigationList>
             </nav>
-        </header>
+        </AppMenu>
     )
 }
