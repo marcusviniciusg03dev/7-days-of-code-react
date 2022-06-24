@@ -51,11 +51,23 @@ const GlobalStyle = createGlobalStyle`
 `;
 
 export const StrongElsie = styled.strong`
-    font: 3rem 'Elsie Swash Caps';
-    color:#202020;
+    font: 4rem 'Elsie Swash Caps';
+    color: #202020;
     line-height: 90px;
-    font-size: 4rem;
     line-height: 60px;
+`;
+
+export const MediumElsie = styled.strong`
+    font: 2.5rem 'Elsie Swash Caps';
+    color: #202020;
+    line-height: 30px;
+`;
+
+export const SmallElsie = styled.small`
+    font-family: 'Elsie Swash Caps';
+    font-size: 1.5rem;
+    color: #202020;
+    line-height: 2rem;
 `;
 
 export default GlobalStyle;

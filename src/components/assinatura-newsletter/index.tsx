@@ -1,20 +1,33 @@
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
 import { StrongElsie } from '../../Global/Styles';
 import { FormSignUpNewsletter } from './styles';
 
 export default function AssinaturaNewsletter() {
-    const emailField = useRef<null | HTMLInputElement>(null);
+    const [step, setStep] = useState<number>(1);
+
+    const [name, setName] = useState<string>('');
+    const [email, setEmail] = useState<string>('');
 
     function handleSignUpNewsletter (e: React.FormEvent<HTMLFormElement>) {
         e.preventDefault();
 
-        const email = emailField.current!.value;
+        if (step == 1) return setStep(2);
         
-        emailField.current!.value = "";
+        SubmitSignUpNewsLetter();
+    }
 
-        // register e-mail...
+    async function SubmitSignUpNewsLetter () {
+        const { ok } = await fetch('http://localhost:4000/register-email', {
+            method: 'POST',
+            body: JSON.stringify({ emailAddress: email, name: 'Marcus' }),
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        });
         
-        alert(`Obrigado pela sua assinatura, você receberá nossas novidades no e-mail ${email}.`);
+        if (!ok) return alert('Não conseguimos realizar a operação, verifique teu e-mail.')
+        
+        alert(`Obrigado pela sua assinatura, você receberá nossas novidades no e-mail ${email}.`)       
     }
 
     return (
@@ -31,15 +44,31 @@ export default function AssinaturaNewsletter() {
                 `}
             />
             <div>
-                <input
-                    ref={emailField}
-                    required
-                    placeholder="Insira seu e-mail"
-                    type="email"
+            {
+                step === 1 ? (
+                    <input
+                        onChange={({ target: { value } }) => setName(value)}
+                        value={name}
+                        required
+                        placeholder="Insira seu nome"
+                        type="text"
+                    />
+                ) : (
+                    <input
+                        value={email}
+                        onChange={({ target: { value } }) => setEmail(value)}
+                        required
+                        placeholder="Insira seu e-mail"
+                        type="email"
+                    />
+                )
+            }
+                <button
+                    type="submit"
+                    disabled={step == 1 ? !name.trim() : !email.trim()}
+                    children={step == 1 ? "Continuar" : "Assinar newsletter"}
                 />
-
-                <button type="submit" children="Assinar newsletter" />
-            </div>
+            </div> 
         </FormSignUpNewsletter>
     )
 }

@@ -4,10 +4,9 @@ import MailIcon from '../../assets/icons/mail.svg';
 export const FormSignUpNewsletter = styled.form`
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: center;
     width: 30vw;
-    height: 50vh;
-    margin-top: 10%;
+    height: 80vh;
 
     div {
         display: grid;
@@ -20,6 +19,10 @@ export const FormSignUpNewsletter = styled.form`
             color: #FFF;
             background: #FFCB47;
             box-shadow: 10px 10px 30px 0px #FFCB474D;
+            transition: .4s background-color;
+            :disabled {
+                background: #ffd770;
+            }
         }
 
         input {
