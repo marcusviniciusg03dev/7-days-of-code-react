@@ -1,13 +1,12 @@
 import path from 'path';
 import fs from 'fs';
-import { config } from 'dotenv';
 import { Request, Response, Router } from "express";
-import nodemailer from 'nodemailer';
 import sgMail from '@sendgrid/mail'
-
-const plants = require('./data/plants.json');
+import { config } from 'dotenv';
 
 config({ path: './.env' });
+
+const plants = require('./data/plants.json');
 
 sgMail.setApiKey(process.env.SENDGRID_SENDER_API_KEY!);
 
@@ -20,6 +19,8 @@ routes.post('/register-email', async (request: Request, response: Response) => {
 
         if (!emailAddress || !name) return response.status(400).send({ message: 'No name or e-mail.' });
 
+        // add person data to database...
+
         await sgMail.send({
             from: process.env.SENDER_EMAIL!,
             to: emailAddress,
@@ -27,7 +28,7 @@ routes.post('/register-email', async (request: Request, response: Response) => {
             html: fs.readFileSync(path.resolve(__dirname, 'emails', 'welcome.html'), 'utf-8').replace('#{{name}}', name)
         });
 
-        return response.status(200).send({ message: "E-mail successfully sended." });
+        return response.status(201).send({ message: "E-mail successfully sended." });
 
     } catch (error: any) {
         return response.status(error.status || 400).send({ message: error.message || 'Unexpected error.' })
