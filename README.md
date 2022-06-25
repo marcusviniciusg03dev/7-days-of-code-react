@@ -1,7 +1,7 @@
 # 7-days-of-code-react
 Project created in 7 days of code of React from Alura.
 
-I've stopped working on this project, but i decided continue. It's finished.
+I've stopped working on this project, but i decided continue. It's finally finished.
 
 Project name: Casa verde
 
