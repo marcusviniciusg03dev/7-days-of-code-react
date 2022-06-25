@@ -17,7 +17,7 @@ export const Hero = styled.div`
     background-image: url(${HeroImage});
     background-repeat: no-repeat;
     background-size: 120%;
-    background-position-x: center;
+    background-position-x: -130px;
     height: 100vh;
     width: 100vh;
     top: 0;
@@ -37,7 +37,7 @@ export const HowToGet = styled.div`
     grid-template-columns: 1.5fr 1fr;
     box-shadow: 1px 3px 19px rgb(0 0 0 / 10%);
     height: 24rem;
-    width: 50rem;
+    width: 60rem;
     margin: auto;
 
     aside {
