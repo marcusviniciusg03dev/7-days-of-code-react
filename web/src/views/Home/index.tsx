@@ -42,9 +42,9 @@ export default function Home() {
                     <aside>
                         <label>Como conseguir</label>
                         <SmallElsie>Minha planta</SmallElsie>
-                        <ul>
+                        <ol>
                             {['Escolha suas plantas', 'Faça seu pedido', 'Aguarde na sua casa'].map(step => <li key={step}>{step}</li>)}
-                        </ul>
+                        </ol>
                     </aside>
                 </HowToGet>
 

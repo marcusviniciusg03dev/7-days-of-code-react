@@ -1,13 +1,10 @@
 import styled from "styled-components";
-import HeroImage from '../../assets/img/hero.svg';
 
-import backgroundLine from '../../assets/img/lines.png';
+import HeroImage from '../../assets/img/hero.svg';
 import howToGetPlant from '../../assets/img/how-to-get-plant.png';
+import yellowBullet from '../../assets/icons/yellow-bullet.svg';
 
 const HomePage = styled.main`
-    background-image: url(${backgroundLine});
-    background-size: contain;
-    background-position-x: right;
     min-height: 100vh;
     padding: .5rem 15%;
 
@@ -47,14 +44,23 @@ export const HowToGet = styled.div`
         display: flex;
         flex-direction: column;
         padding: 2rem;
-    }
 
-    aside > ul > li::before {
-        color: red;
-        font-weight: bold;
-        display: inline-block; 
-        width: 1em;
-        margin-left: -1em;
+        ol {
+            list-style-type: none;
+            display: list-item;
+            height: 100%;
+        }
+        
+        ol li {
+            display: flex;
+            margin: 2em 0;
+            font-size: 1rem;
+        }
+        
+        ol li::before {
+            content: url(${yellowBullet});
+            margin-right: 5px;
+        }
     }
 `;
 

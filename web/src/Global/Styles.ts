@@ -1,4 +1,5 @@
-import styled, { createGlobalStyle } from "styled-components";
+import styled, { createGlobalStyle } from 'styled-components';
+import backgroundLines from '../assets/img/lines.png';
 
 const GlobalStyle = createGlobalStyle`
     * {
@@ -17,6 +18,12 @@ const GlobalStyle = createGlobalStyle`
         color: rgba(32, 32, 32, .5);
     }
 
+    body {
+        background-image: url(${backgroundLines});
+        background-size: contain;
+        background-position-x: right;
+    }
+
     button {
         cursor: pointer;
     }
@@ -28,7 +35,7 @@ const GlobalStyle = createGlobalStyle`
     }
 
     ul {
-        list-style: none;
+        list-style-type: none;
     }
 
     a {
